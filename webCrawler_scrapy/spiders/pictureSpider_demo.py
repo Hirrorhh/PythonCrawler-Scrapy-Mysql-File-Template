@@ -1,4 +1,4 @@
-#coding=utf-8
+# -*- coding: utf-8 -*-
 import scrapy
 import re
 import os
@@ -33,8 +33,9 @@ class Spdier_pictures(scrapy.spiders.Spider):
                     
                     path=os.path.join("D:\pics",file_name)#拼接这个图片的路径，我是放在F盘的pics文件夹下
                     
-                    type = sys.getfilesystemencoding()
-                    print file_name.encode(type)  
+                    # type = sys.getfilesystemencoding()#对于Windows返回'mbcs', 或对于Macintosh OSX返回'utf-8'。在UNIX系统上,
+                    # 编码取决于区域设置并将返回区域参数CODESET的值。在使用默认编码的系统上可能返回None。
+                    # print file_name.encode(type)
                     
                     item=WebcrawlerScrapyItem()  #实例item（具体定义的item类）,将要保存的值放到事先声明的item属性中
                     item['name']=file_name 
